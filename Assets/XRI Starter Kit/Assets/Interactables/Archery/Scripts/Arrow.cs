@@ -50,7 +50,7 @@ namespace MikeNspired.XRIStarterKit
             transform.parent = collision.transform;
 
             if (collision.transform.TryGetComponent(out Rigidbody body))
-                body.AddForce(rb.linearVelocity, ForceMode.Impulse);
+                body.AddForce(rb.velocity, ForceMode.Impulse);
 
             Stop();
         }
@@ -99,7 +99,7 @@ namespace MikeNspired.XRIStarterKit
             yield return new WaitForFixedUpdate();
             while (inAir)
             {
-                Quaternion newRotation = Quaternion.LookRotation(rb.linearVelocity, transform.up);
+                Quaternion newRotation = Quaternion.LookRotation(rb.velocity, transform.up);
                 transform.rotation = newRotation;
                 yield return null;
             }

@@ -125,7 +125,7 @@ namespace MikeNspired.XRIStarterKit
 
             if (hookRb != null)
             {
-                hookRb.linearVelocity = gunTip.forward * hookSpeed;
+                hookRb.velocity = gunTip.forward * hookSpeed;
             }
 
             HookCollision hookCollision = currentHook.GetComponent<HookCollision>();

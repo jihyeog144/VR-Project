@@ -83,7 +83,7 @@ namespace MikeNspired.XRIStarterKit
             currentTurnAngle = maxTurnAngle * turnInput;
         }
 
-        private void UpdateVehicleAudio() => vehicleAudio.AdjustAudio(movementInput, rb.linearVelocity.magnitude);
+        private void UpdateVehicleAudio() => vehicleAudio.AdjustAudio(movementInput, rb.velocity.magnitude);
 
         private void UpdateAcceleration()
         {
