@@ -64,7 +64,7 @@ namespace MikeNspired.XRIStarterKit
         }
 
         private void UpdateVehicleAudio() =>
-            vehicleAudio.AdjustAudio(movementInput, rootArticulationBody.velocity.magnitude);
+            vehicleAudio.AdjustAudio(movementInput, rootArticulationBody.linearVelocity.magnitude);
 
         private void UpdateAcceleration()
         {
@@ -158,8 +158,6 @@ namespace MikeNspired.XRIStarterKit
                 appliedAcceleration = acceleration / 2;
                 appliedMaxSpeed = maxSpeed / 2;
             }
-
-
 
             void SetDriveType(ArticulationBody articulationBody, ArticulationDriveType driveType)
             {
