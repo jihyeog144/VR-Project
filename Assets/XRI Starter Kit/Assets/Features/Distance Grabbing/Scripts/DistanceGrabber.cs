@@ -592,7 +592,7 @@ namespace MikeNspired.XRIStarterKit
             var rb = target.GetComponent<Rigidbody>();
             if (!rb) yield break;
 
-            startingDrag = rb.linearDamping;
+            startingDrag = rb.drag;
             Vector3 goalPosition = transform.position + Vector3.up * verticalGoalAddOn;
             Vector3 startPosition = target.position;
             Quaternion startRotation = target.rotation;
@@ -633,12 +633,12 @@ namespace MikeNspired.XRIStarterKit
             // Return hand collider back to original size eventually
             StartCoroutine(ShrinkColliderAfterDelay());
 
-            rb.linearDamping = dragHoldAmount;
-            rb.linearVelocity = velocity * velocitySpeedWhenFinished;
+            rb.drag = dragHoldAmount;
+            rb.velocity = velocity * velocitySpeedWhenFinished;
             rb.WakeUp();
 
             yield return new WaitForSeconds(dragTime);
-            rb.linearDamping = startingDrag;
+            rb.drag = startingDrag;
             isLaunching = false;
         }
 
